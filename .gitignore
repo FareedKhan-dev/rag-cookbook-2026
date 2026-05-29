@@ -42,3 +42,6 @@ site/
 
 # --- Corpus downloads (large; recreated via scripts/fetch_corpus.py) ---
 corpus/_downloads/
+
+# DeepEval telemetry/state
+.deepeval/

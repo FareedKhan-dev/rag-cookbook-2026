@@ -1,0 +1,115 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rag-cookbook"
+version = "0.1.0"
+description = "The RAG Cookbook 2026 — recipes for production-grade retrieval."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Fareed Khan", email = "fareedhassankhan12@gmail.com" }
+]
+keywords = [
+    "rag",
+    "retrieval-augmented-generation",
+    "llm",
+    "embeddings",
+    "vector-search",
+    "nebius",
+    "qdrant",
+    "colpali",
+    "graphrag",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Provider abstraction
+    "litellm>=1.55",
+    "openai>=1.55",
+    "anthropic>=0.40",
+    # Embeddings and rerankers
+    "sentence-transformers>=3.3",
+    "FlagEmbedding>=1.3",
+    "fastembed>=0.5",
+    # Vector stores
+    "qdrant-client>=1.12",
+    "lancedb>=0.16",
+    "chromadb>=0.5",
+    # Document loading and chunking
+    "pymupdf>=1.25",
+    "pypdf>=5.1",
+    "markdown-it-py>=3.0",
+    "tiktoken>=0.8",
+    "rank-bm25>=0.2.2",
+    # Graph
+    "networkx>=3.4",
+    "python-igraph>=0.11",
+    # Agentic frameworks
+    "langgraph>=0.2",
+    "langchain-core>=0.3",
+    "llama-index-core>=0.12",
+    "dspy-ai>=2.5",
+    # Tracing and evaluation
+    "arize-phoenix>=7.0",
+    "langsmith>=0.2",
+    "ragas>=0.2",
+    "deepeval>=2.0",
+    # Utilities
+    "pydantic>=2.10",
+    "python-dotenv>=1.0",
+    "rich>=13.9",
+    "tqdm>=4.67",
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+multimodal = [
+    "colpali-engine>=0.3",
+    "transformers>=4.46",
+    "accelerate>=1.2",
+    "torch>=2.5",
+    "Pillow>=11.0",
+]
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.5",
+    "mkdocs-jupyter>=0.25",
+    "mkdocs-mermaid2-plugin>=1.1",
+    "mkdocstrings[python]>=0.27",
+    "pymdown-extensions>=10.12",
+]
+dev = [
+    "ruff>=0.8",
+    "nbqa>=1.9",
+    "pytest>=8.3",
+    "jupyterlab>=4.3",
+]
+
+[project.urls]
+Repository = "https://github.com/FareedKhan-dev/rag-cookbook-2026"
+Documentation = "https://fareedkhan-dev.github.io/rag-cookbook-2026/"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cookbook"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]

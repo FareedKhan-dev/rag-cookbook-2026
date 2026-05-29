@@ -1,0 +1,163 @@
+site_name: The RAG Cookbook 2026
+site_description: Forty recipes for production-grade retrieval — Nebius-first, provider-agnostic.
+site_author: Fareed Khan
+site_url: https://fareedkhan-dev.github.io/rag-cookbook-2026/
+repo_url: https://github.com/FareedKhan-dev/rag-cookbook-2026
+repo_name: FareedKhan-dev/rag-cookbook-2026
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - mermaid2:
+      arguments:
+        theme: default
+        startOnLoad: true
+  - mkdocs-jupyter:
+      execute: false
+      include_source: true
+      ignore_h1_titles: true
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Theory:
+      - Retrieval Foundations: theory/retrieval-foundations.md
+      - Chunking & Indexing: theory/chunking-and-indexing.md
+      - Query Transformation: theory/query-transformation.md
+      - Reranking & Fusion: theory/reranking-and-fusion.md
+      - Adaptive & Agentic: theory/adaptive-and-agentic.md
+      - Graph & Memory: theory/graph-and-memory.md
+      - Multimodal: theory/multimodal.md
+      - Evaluation & Observability: theory/evaluation-and-observability.md
+      - Production Patterns: theory/production-patterns.md
+  - Recipes:
+      - Foundations:
+          - recipes/01-foundations/cookbook-tour.ipynb
+          - recipes/01-foundations/vanilla-pipeline.ipynb
+          - recipes/01-foundations/embedding-zoo.ipynb
+          - recipes/01-foundations/chunk-size-sensitivity.ipynb
+      - Chunking & Indexing:
+          - recipes/02-chunking-and-indexing/semantic-boundary-splitting.ipynb
+          - recipes/02-chunking-and-indexing/late-chunking-jina.ipynb
+          - recipes/02-chunking-and-indexing/contextual-retrieval-anthropic.ipynb
+          - recipes/02-chunking-and-indexing/proposition-decomposition.ipynb
+          - recipes/02-chunking-and-indexing/sentence-window-and-parent-child.ipynb
+          - recipes/02-chunking-and-indexing/raptor-trees.ipynb
+          - recipes/02-chunking-and-indexing/document-summary-routing.ipynb
+          - recipes/02-chunking-and-indexing/matryoshka-coarse-to-fine.ipynb
+      - Query Transformation:
+          - recipes/03-query-transformation/hypothetical-document-embeddings.ipynb
+          - recipes/03-query-transformation/multi-query-rag-fusion.ipynb
+          - recipes/03-query-transformation/step-back-abstraction.ipynb
+          - recipes/03-query-transformation/sub-question-decomposition.ipynb
+          - recipes/03-query-transformation/semantic-router.ipynb
+      - Retrieval:
+          - recipes/04-retrieval/hybrid-dense-plus-bm25.ipynb
+          - recipes/04-retrieval/colbert-late-interaction.ipynb
+          - recipes/04-retrieval/auto-retrieval-with-metadata.ipynb
+          - recipes/04-retrieval/mmr-diversity.ipynb
+      - Reranking & Fusion:
+          - recipes/05-reranking-and-fusion/cross-encoder-rerank.ipynb
+          - recipes/05-reranking-and-fusion/listwise-llm-rerank.ipynb
+      - Adaptive & Agentic:
+          - recipes/06-adaptive-and-agentic/self-reflective-retrieval.ipynb
+          - recipes/06-adaptive-and-agentic/corrective-retrieval-with-web-fallback.ipynb
+          - recipes/06-adaptive-and-agentic/adaptive-routing-by-question-class.ipynb
+          - recipes/06-adaptive-and-agentic/speculative-rag-drafter-verifier.ipynb
+          - recipes/06-adaptive-and-agentic/langgraph-agentic-rag.ipynb
+          - recipes/06-adaptive-and-agentic/mcp-tool-retrieval.ipynb
+          - recipes/06-adaptive-and-agentic/dspy-compiled-rag.ipynb
+      - Graph & Memory:
+          - recipes/07-graph-and-memory/microsoft-graphrag-pipeline.ipynb
+          - recipes/07-graph-and-memory/lightrag-dual-level.ipynb
+          - recipes/07-graph-and-memory/hipporag-pagerank-memory.ipynb
+          - recipes/07-graph-and-memory/mem0-long-term-memory.ipynb
+      - Multimodal:
+          - recipes/08-multimodal/colpali-page-as-image.ipynb
+          - recipes/08-multimodal/vlm-synthesis-over-pages.ipynb
+      - Evaluation & Production:
+          - recipes/09-evaluation-and-production/ragas-triad-eval.ipynb
+          - recipes/09-evaluation-and-production/deepeval-pytest-ci.ipynb
+          - recipes/09-evaluation-and-production/phoenix-tracing-debugging.ipynb
+          - recipes/09-evaluation-and-production/hallucination-guardrails-lynx.ipynb
+  - API Reference:
+      - cookbook.providers: api/providers.md
+      - cookbook.corpora: api/corpora.md
+      - cookbook.stores: api/stores.md
+      - cookbook.eval: api/eval.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/FareedKhan-dev
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/fareed-khan

@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "The RAG Cookbook 2026"
+message: "If you use this cookbook in research or teaching, please cite it."
+type: software
+authors:
+  - given-names: Fareed
+    family-names: Khan
+    email: fareedhassankhan12@gmail.com
+repository-code: "https://github.com/FareedKhan-dev/rag-cookbook-2026"
+abstract: >
+  A production-grade collection of forty hands-on recipes covering the
+  state of the art in retrieval-augmented generation as of 2026 —
+  from late chunking and contextual retrieval to ColPali, LightRAG,
+  HippoRAG 2, speculative RAG, DSPy-compiled pipelines, and MCP
+  agentic retrieval. Every recipe is provider-agnostic and runs on
+  Nebius AI Studio by default.
+keywords:
+  - retrieval-augmented generation
+  - large language models
+  - vector search
+  - embedding models
+  - graph rag
+license: Apache-2.0
+version: 0.1.0
+date-released: 2026-05-29

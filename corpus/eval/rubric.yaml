@@ -1,0 +1,29 @@
+# Hand-authored rubric for the cookbook's evaluation set.
+# Recipes 37–40 consume this file to weight metrics and set pass/fail thresholds.
+
+version: 1
+description: >
+  Quality bar for the 80-question eval set in ragas-questions.jsonl. Thresholds
+  are intentionally modest: a vanilla pipeline should clear them on the easy
+  bucket and fail on the hard one, giving every recipe room to demonstrate
+  improvement.
+
+thresholds:
+  ragas_faithfulness: 0.70
+  ragas_answer_relevancy: 0.75
+  ragas_context_precision: 0.65
+  ragas_context_recall: 0.55
+  deepeval_faithfulnessmetric: 0.70
+  deepeval_answerrelevancymetric: 0.75
+  deepeval_contextualprecisionmetric: 0.65
+
+per_corpus_min_questions:
+  arxiv-mamba: 15
+  wikipedia-superconductors: 15
+  sec-10k-pltr: 15
+  rust-book: 15
+
+difficulty_weights:
+  easy: 1.0
+  medium: 1.5
+  hard: 2.0

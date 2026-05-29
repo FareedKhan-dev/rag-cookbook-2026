@@ -1,0 +1,44 @@
+# --- Secrets ---
+.env
+.env.local
+*.key
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.uv/
+.python-version
+build/
+dist/
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Caches ---
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- Vector store local files ---
+qdrant_storage/
+lance_data/
+chroma_db/
+*.duckdb
+*.db
+
+# --- Docs build ---
+site/
+.docs_cache/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# --- Corpus downloads (large; recreated via scripts/fetch_corpus.py) ---
+corpus/_downloads/
